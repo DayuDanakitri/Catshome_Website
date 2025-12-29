@@ -1,11 +1,16 @@
 <div id="applicantModal" class="applicant-modal-overlay" style="display: none;">
     <div class="applicant-modal-box">
+
+        <!-- HEADER -->
         <div class="applicant-modal-header">
             <button id="closeApplicantModal" class="modal-back-btn">&larr;</button>
             <h1 class="modal-title">Applicant’s Details</h1>
         </div>
 
+        <!-- CONTENT -->
         <div class="applicant-modal-content">
+
+            <!-- KIRI : DATA APPLICANT -->
             <div class="applicant-info">
                 <ul class="applicant-details">
                     <li>Applicant’s Name: <span id="modalName"></span></li>
@@ -17,11 +22,17 @@
                     <li>Address: <span id="modalAddress"></span></li>
                     <li>Do you: <span id="modalHousing"></span></li>
                 </ul>
+            </div>
 
-                <img id="modalCatPhoto" class="applicant-image">
+            <!-- KANAN : FOTO + APPLIED FOR -->
+            <div class="applicant-image-section">
+                <img id="modalCatPhoto" class="applicant-image" alt="Cat Photo">
+
                 <div class="applied-for">
                     Applied For: <span id="modalCat"></span>
                 </div>
+            </div>
+
         </div>
     </div>
 </div>

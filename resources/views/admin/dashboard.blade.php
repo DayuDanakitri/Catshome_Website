@@ -71,13 +71,14 @@
                     Edit
                 </a>
 
-
                 <form action="{{ route('admin.cat.delete', $cat->id) }}"
                     method="POST"
                     style="display:inline;">
                     @csrf
+                    @method('DELETE')
 
-                    <button class="action-btn delete-btn"
+                    <button type="submit"
+                            class="action-btn delete-btn"
                             onclick="return confirm('Yakin ingin menghapus data kucing ini?')">
                         Delete
                     </button>

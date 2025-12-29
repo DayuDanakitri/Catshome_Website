@@ -81,7 +81,7 @@ body {
 }
 
 .dashboard-container {
-    max-width: 1300px;
+    max-width: 300px;
     margin: 50px auto;
     padding: 0 40px;
     animation: fadeIn 0.5s ease-in;
@@ -711,5 +711,158 @@ body {
 
     .applied-for {
         font-size: 20px;
+    }
+}
+
+/* ================= RESET ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* ================= BODY ================= */
+
+body {
+    background: #f4f7fb;
+    color: #1f2d3d;
+}
+
+/* ================= HEADER ================= */
+
+.admin-header {
+    background: #ffffff;
+    padding: 20px 40px;
+    border-bottom: 1px solid #e0e6ed;
+}
+
+.admin-header .logo {
+    font-size: 22px;
+    font-weight: 600;
+    color: #4C7EBE;
+}
+
+/* ================= CONTAINER ================= */
+
+.dashboard-container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+/* ================= BACK LINK ================= */
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 30px;
+    text-decoration: none;
+    color: #4C7EBE;
+    font-weight: 500;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* ================= FORM ================= */
+
+form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 40px;
+}
+
+/* ================= FORM GROUP ================= */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+/* ================= INPUT ================= */
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1.8px solid #c7dff0;
+    font-size: 14px;
+    outline: none;
+    background: #ffffff;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* ================= FULL WIDTH ================= */
+
+.form-group textarea,
+.form-group input[type="file"] {
+    grid-column: span 2;
+}
+
+/* ================= IMAGE PREVIEW ================= */
+
+.form-group img {
+    margin-top: 12px;
+    border-radius: 10px;
+    border: 1px solid #dce6f0;
+    max-width: 140px;
+}
+
+/* ================= BUTTON ================= */
+
+.btn-save {
+    grid-column: span 2;
+    margin-top: 30px;
+    align-self: flex-start;
+
+    padding: 14px 36px;
+    border-radius: 30px;
+    border: none;
+    background: #4C7EBE;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(76,126,190,0.35);
+    transition: 0.3s ease;
+}
+
+.btn-save:hover {
+    background: #3b6aa5;
+    transform: translateY(-2px);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+    .dashboard-container {
+        padding: 30px 20px;
+    }
+
+    form {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-save {
+        grid-column: span 1;
+        width: 100%;
+        text-align: center;
     }
 }
