@@ -23,16 +23,24 @@ class AdminController extends Controller
         return back()->withErrors(['msg'=>'Username atau password salah']);
     }
 
-    /* DASHBOARD */
-    public function showDashboard()
+    public function showDashboard(Request $request)
     {
-        $cats = Cat::latest()->get();
+        $catQuery = Cat::query();
+
+        if ($request->filled('keyword')) {
+            $catQuery->where('name', 'like', '%' . $request->keyword . '%');
+        }
+
+        $cats = $catQuery->latest()->get();
+
         $applications = AdoptionApplication::with('cat')
-        ->where('status', 'Pending')
-        ->whereHas('cat')
-        ->get();
-        return view('admin.dashboard', compact('cats','applications'));
+            ->where('status', 'Pending')
+            ->whereHas('cat')
+            ->get();
+
+        return view('admin.dashboard', compact('cats', 'applications'));
     }
+
 
     /* FORM INPUT CAT */
     public function showInputCats()
@@ -83,6 +91,29 @@ public function deleteCat($id)
     $cat->delete();
 
     return back()->with('success', 'Cat deleted successfully');
+}
+
+public function editCat($id)
+{
+    $cat = Cat::findOrFail($id);
+    return view('admin.edit_cat', compact('cat'));
+}
+
+public function updateCat(Request $request, $id)
+{
+    $cat = Cat::findOrFail($id);
+
+    $data = $request->only([
+        'name', 'gender', 'age', 'breed', 'location', 'description'
+    ]);
+
+    if ($request->hasFile('photo')) {
+        $data['photo'] = $request->file('photo')->store('cats', 'public');
+    }
+
+    $cat->update($data);
+
+    return redirect('/admin/dashboard')->with('success', 'Cat updated successfully');
 }
 }
 

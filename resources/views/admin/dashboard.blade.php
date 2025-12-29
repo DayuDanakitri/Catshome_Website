@@ -66,7 +66,11 @@
             </div>
 
             <div class="col-action">
-                <button class="action-btn edit-btn">Edit</button>
+                <a href="{{ route('admin.cat.edit', $cat->id) }}"
+                    class="action-btn edit-btn">
+                    Edit
+                </a>
+
 
                 <form action="{{ route('admin.cat.delete', $cat->id) }}"
                     method="POST"

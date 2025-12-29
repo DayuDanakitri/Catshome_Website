@@ -55,5 +55,8 @@ Route::post('/admin/adoption/{id}/accept', [AdminController::class, 'acceptAdopt
     
 Route::post('/admin/adoption/{id}/decline', [AdminController::class, 'declineAdoption']);
 
-Route::post('/admin/cat/{id}/delete', [AdminController::class, 'deleteCat'])
+Route::delete('/admin/cat/{id}', [AdminController::class, 'deleteCat'])
     ->name('admin.cat.delete');
+
+Route::get('admin/cat/{id}/edit', [AdminController::class, 'editCat'])->name('admin.cat.edit');
+Route::post('admin/cat/{id}/update', [AdminController::class, 'updateCat'])->name('admin.cat.update');
