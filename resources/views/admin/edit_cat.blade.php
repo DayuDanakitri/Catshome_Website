@@ -50,10 +50,19 @@
 
     <div class="form-group">
         <label>Photo (optional)</label>
-        <input type="file" name="photo">
-        <br>
-        <img src="{{ asset('storage/'.$cat->photo) }}" width="120">
+
+        <input type="file" name="photo" id="photoInput" accept="image/*">
+
+        <br><br>
+
+        <img
+            id="photoPreview"
+            src="{{ asset('storage/'.$cat->photo) }}"
+            width="120"
+            alt="Cat photo preview"
+        >
     </div>
+
 
     <div class="form-group">
         <label>Description</label>
@@ -64,5 +73,18 @@
 </form>
 
 </div>
+
+    <script>
+        const photoInput = document.getElementById('photoInput');
+        const photoPreview = document.getElementById('photoPreview');
+
+        photoInput.addEventListener('change', function (event) {
+            const file = event.target.files[0];
+
+            if (file) {
+                photoPreview.src = URL.createObjectURL(file);
+            }
+        });
+    </script>
 </body>
 </html>

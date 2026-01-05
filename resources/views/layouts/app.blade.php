@@ -14,9 +14,9 @@
             <nav>
                 <ul class="nav-links">
                     <li><a href="{{ url('/') }}">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#our-cats">Our Cats</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="{{ url('/#about') }}">About Us</a></li>
+                    <li><a href="{{ url('/#our-cats') }}">Our Cats</a></li>
+                    <li><a href="{{ url('/#contact') }}">Contact</a></li>
                 </ul>
             </nav>
             <a href="{{ url('/admin/login') }}" class="btn-login">Login Admin</a>

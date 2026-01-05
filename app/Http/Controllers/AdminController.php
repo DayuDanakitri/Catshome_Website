@@ -3,28 +3,31 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Admin;
 use App\Models\Cat;
 use App\Models\AdoptionApplication;
-use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
     /* LOGIN */
     public function handleLogin(Request $request)
     {
-        $admin = Admin::where('username', $request->username)->first();
-
-        if ($admin && Hash::check($request->password, $admin->password)) {
+        if (
+            $request->username === 'admin' &&
+            $request->password === 'admin123'
+        ) {
             session(['admin_logged_in' => true]);
             return redirect('/admin/dashboard');
         }
 
-        return back()->withErrors(['msg'=>'Username atau password salah']);
+        return back()->withErrors(['msg' => 'Username atau password salah']);
     }
+
 
     public function showDashboard(Request $request)
     {
+        if (!session('admin_logged_in')) {
+        return redirect('/admin/login');
+    }
         $catQuery = Cat::query();
 
         if ($request->filled('keyword')) {

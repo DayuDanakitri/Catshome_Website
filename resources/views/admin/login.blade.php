@@ -24,22 +24,13 @@
             <h1 class="login-header">LOGIN</h1>
             <p class="welcome-text">welcome back!</p>
             
-            <form action="{{ url('/admin/dashboard') }}" method="POST" id="loginForm">
+            <form action="{{ route('admin.login.submit') }}" method="POST">
                 @csrf
                 <input type="text" name="username" placeholder="Username" required>
                 <input type="password" name="password" placeholder="Password" required>
-                
                 <button type="submit" class="login-button">Login</button>
             </form>
         </div>
     </div>
-
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            alert('Login berhasil! Mengarahkan ke Dashboard Admin...');
-            window.location.href = "{{ url('/admin/dashboard') }}"; 
-        });
-    </script>
 </body>
 </html>
