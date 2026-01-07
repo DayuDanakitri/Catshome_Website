@@ -661,3 +661,158 @@ form {
 html, body {
     overflow-x: hidden;
 }
+
+@media (max-width: 768px) {
+
+    .data-table .table-row {
+        display: grid;
+        grid-template-columns: 90px 1fr;
+        grid-template-areas:
+            "photo name"
+            "photo action";
+        gap: 12px;
+        padding: 16px;
+        border-radius: 14px;
+        background: #fff;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        margin-bottom: 16px;
+    }
+
+    .data-table .col-photo {
+        grid-area: photo;
+    }
+
+    .data-table .col-name {
+        grid-area: name;
+    }
+
+    .data-table .col-action {
+        grid-area: action;
+        justify-content: flex-start;
+        gap: 10px;
+    }
+
+    .data-table .action-btn {
+        width: auto; /* ⬅️ jangan full */
+        padding: 6px 14px;
+    }
+}
+
+/* ================= APPLICANT MODAL RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+
+    /* Overlay */
+    .applicant-modal-overlay {
+        padding: 15px;
+        align-items: flex-start;
+    }
+
+    /* Modal box */
+    .applicant-modal-box {
+        width: 100%;
+        height: auto;
+        max-height: 95vh;
+        padding: 20px;
+        border-radius: 20px;
+        overflow-y: auto;
+    }
+
+    /* Header */
+    .applicant-modal-header {
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+    .modal-title {
+        font-size: 24px;
+        line-height: 1.3;
+    }
+
+    /* Content layout */
+    .applicant-modal-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* Applicant info */
+    .applicant-info {
+        padding: 16px;
+    }
+
+    .applicant-details {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .applicant-details li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+    }
+
+    .applicant-details span {
+        font-weight: 600;
+        color: #2f3b52;
+    }
+
+    /* Image section */
+    .applicant-image-section {
+        width: 100%;
+    }
+
+    .applicant-image {
+        width: 100%;
+        height: 200px;
+        border-radius: 14px;
+    }
+
+    /* Applied for */
+    .applied-for {
+        font-size: 20px;
+        margin-top: 6px;
+    }
+
+    /* Back button */
+    .modal-back-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
+        margin-right: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Sembunyikan HEADER kolom */
+    .header-row .col-num,
+    .header-row .col-photo,
+    .header-row .col-name,
+    .header-row .col-action {
+        display: none;
+    }
+
+    /* Sembunyikan kolom NO saja */
+    .data-row .col-num {
+        display: none;
+    }
+
+    /* Tetap tampilkan PHOTO, NAME, ACTION */
+    .data-row {
+        grid-template-columns: auto 1fr;
+        gap: 12px;
+    }
+
+    .data-row .col-photo img {
+        width: 90px;
+        height: 90px;
+        border-radius: 12px;
+    }
+
+    .data-row .col-action {
+        justify-content: flex-start;
+        margin-top: 6px;
+    }
+}
+

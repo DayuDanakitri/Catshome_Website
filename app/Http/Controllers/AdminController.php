@@ -47,9 +47,13 @@ class AdminController extends Controller
 
     /* FORM INPUT CAT */
     public function showInputCats()
-    {
-        return view('admin.input_cats');
+{
+    if (!session('admin_logged_in')) {
+        return redirect('/admin/login');
     }
+
+    return view('admin.input_cats');
+}
 
     /* STORE CAT */
     public function storeCat(Request $request)
